@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// =============================================================================
+// Planning Poker - Firestore Security Rules
+// =============================================================================
+// このプロジェクト (radarmap2-dev) では Planning Poker のみが Firestore を利用
+// する想定です。games コレクションとその配下のみアクセス可能で、それ以外は
+// 全て拒否します。
+//
+// セッション URL に含まれる 26 文字の ULID がアクセス制限の役割を果たします
+// （URL を知らないユーザーはアクセスできない）。
+// =============================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Planning Poker セッション (games)
+    // URL (ULID) を知っている人は誰でも読み書き可能
+    match /games/{gameId} {
+      allow read, write: if true;
+
+      // セッションの参加プレイヤー
+      match /players/{playerId} {
+        allow read, write: if true;
+      }
+    }
+
+    // 上記以外は全て拒否
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

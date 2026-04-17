@@ -1,0 +1,71 @@
+# =============================================================================
+# Planning Poker - Deploy to Firebase Hosting
+# =============================================================================
+# 動作: v* タグがプッシュされた時に実行
+#   例: git tag -a v1.0.0 -m "..." && git push origin v1.0.0
+# デプロイ先: radarmap2-dev プロジェクト / rm2-planning-poker サイト
+# バージョン表示: git tag (例: v1.0.0) がビルド時に VITE_APP_VERSION として
+#   アプリに注入され、ツールバーに表示される
+# =============================================================================
+
+name: Deploy to Firebase (on tag)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_deploy:
+    name: Build and deploy to Firebase Hosting
+    runs-on: ubuntu-latest
+    steps:
+      # リポジトリのチェックアウト
+      - uses: actions/checkout@v4
+
+      # Node.js セットアップ
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      # 依存関係のインストール
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # アプリのビルド (Firebase 設定とバージョン情報を環境変数で注入)
+      - name: Build app
+        run: yarn build
+        env:
+          # バージョン: git tag 名 (例: v1.0.0)
+          VITE_APP_VERSION: ${{ github.ref_name }}
+          # Firebase 接続設定 (Web App の firebaseConfig)
+          VITE_FB_API_KEY: ${{ secrets.VITE_FB_API_KEY }}
+          VITE_FB_AUTH_DOMAIN: ${{ secrets.VITE_FB_AUTH_DOMAIN }}
+          VITE_FB_PROJECT_ID: ${{ secrets.VITE_FB_PROJECT_ID }}
+          VITE_FB_STORAGE_BUCKET: ${{ secrets.VITE_FB_STORAGE_BUCKET }}
+          VITE_FB_MESSAGING_SENDER_ID: ${{ secrets.VITE_FB_MESSAGING_SENDER_ID }}
+          VITE_FB_APP_ID: ${{ secrets.VITE_FB_APP_ID }}
+          VITE_FB_MEASUREMENT_ID: ${{ secrets.VITE_FB_MEASUREMENT_ID }}
+          # 本番環境では実 Firestore を使用 (エミュレーターではない)
+          VITE_USE_FIRESTORE_EMULATOR: 'false'
+
+      # Firestore セキュリティルールのデプロイ
+      - name: Deploy Firestore rules
+        uses: w9jds/firebase-action@v14.9.0
+        with:
+          args: deploy --only firestore:rules
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RADARMAP2_DEV }}
+          PROJECT_ID: radarmap2-dev
+
+      # Firebase Hosting へのデプロイ
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RADARMAP2_DEV }}
+          projectId: radarmap2-dev
+          target: rm2-planning-poker
+          channelId: live

@@ -1,24 +1,36 @@
+# =============================================================================
+# Planning Poker - Build and Tests
+# =============================================================================
+# develop / release ブランチへのプッシュと、これらのブランチへの PR で
+# ビルドとテストを実行します。デプロイは deploy-to-firebase.yml が
+# v* タグで実行します。
+# =============================================================================
+
 name: Build and Tests
-'on':
+
+on:
   push:
     branches:
-      - master
+      - develop
+      - release
   pull_request:
     branches:
-      - master
+      - develop
+      - release
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
       - name: Install modules
         run: yarn install --frozen-lockfile
       - name: Run lint

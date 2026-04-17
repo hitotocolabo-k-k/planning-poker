@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "planning-poker-agile",
+    "site": "rm2-planning-poker",
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
@@ -9,6 +9,9 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
   },
   "emulators": {
     "firestore": {
