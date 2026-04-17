@@ -1,0 +1,12 @@
+# ローカル開発用 Docker Compose 設定
+# 起動: docker compose up
+# 停止: Ctrl+C または docker compose down
+
+services:
+  planning-poker:
+    build: .
+    container_name: planning-poker
+    ports:
+      - "3000:3000"   # React アプリ
+      - "8080:8080"   # Firestore エミュレーター
+      - "4000:4000"   # Firebase エミュレーター UI

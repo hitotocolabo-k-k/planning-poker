@@ -1,0 +1,12 @@
+# Docker ビルド時に除外するファイル・フォルダ
+node_modules
+build
+.git
+.github
+.vscode
+.env
+.env.local
+*.log
+.DS_Store
+docs
+__mocks__
