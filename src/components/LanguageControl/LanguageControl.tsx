@@ -14,6 +14,7 @@ const LANGUAGES = [
   { value: 'hi-IN', label: 'हिंदी', flag: 'IN' },
   { value: 'ta-IN', label: 'தமிழ்', flag: 'IN' },
   { value: 'es-ES', label: 'Español', flag: 'ES' },
+  { value: 'ja-JP', label: '日本語', flag: 'JP' },
 ];
 
 export const LanguageControl: React.FC = () => {

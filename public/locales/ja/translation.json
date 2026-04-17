@@ -1,0 +1,61 @@
+{
+  "toolbar": {
+    "menu": {
+      "about": "プランニングポーカーとは？",
+      "guide": "ガイド",
+      "examples": "使用例",
+      "newSession": "新しいセッション",
+      "joinSession": "セッションに参加"
+    }
+  },
+  "HomePage": {
+    "heroSection": {
+      "title": "無料プランニングポーカーアプリ",
+      "description": "アジャイル／スクラムチーム向けのユーザーストーリー見積もりに使える、無料・オープンソースのプランニングポーカーWebアプリです。セッションを作成してチームメンバーを招待し、効率的にストーリーの見積もりを行いましょう。"
+    }
+  },
+  "GameController": {
+    "autoReveal": "自動公開",
+    "average": "平均",
+    "reveal": "公開",
+    "restart": "やり直し",
+    "delete": "削除",
+    "exit": "退出",
+    "invite": "招待",
+    "storyName": "ストーリー名",
+    "enterStoryName": "ストーリー名または番号を入力",
+    "inviteLinkCopied": "招待リンクをクリップボードにコピーしました",
+    "areYouSureDelete": "よろしいですか？このセッションを削除し、全ての参加者を退出させます。",
+    "inProgress": "進行中",
+    "finished": "完了",
+    "Timer": {
+      "soundDisabledMod": "音を有効にする",
+      "soundEnabledMod": "音を無効にする",
+      "soundDisabledPlayer": "音:無効",
+      "soundEnabledPlayer": "音:有効",
+      "startTimer": "タイマー開始",
+      "resetTimer": "タイマーリセット",
+      "pauseTimer": "タイマー一時停止",
+      "closeTimer": "タイマーを閉じる"
+    }
+  },
+  "CardPicker": {
+    "ClickOnTheCardToVote": "カードをクリックして投票してください",
+    "SessionNotReadyForVotingWaitForModeratorToStart": "セッションがまだ投票可能ではありません。モデレーターの開始をお待ちください"
+  },
+  "CreateGame": {
+    "newSessionHeader": "新しいセッションを作成",
+    "sessionNameLabel": "セッション名",
+    "yourNameLabel": "お名前",
+    "sessionSizingType": "見積もり方式",
+    "fibonacci": "フィボナッチ (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)",
+    "shortFibonacci": "ショートフィボナッチ (0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100)",
+    "tShirt": "Tシャツ (XXS, XS, S, M, L, XL, XXL)",
+    "tShirtAndNumber": "Tシャツ＆数字 (S, M, L, XL, 1, 2, 3, 4, 5)",
+    "custom": "カスタム",
+    "pleaseEnterValues": "カスタムオプションを少なくとも2つ入力してください",
+    "allowMembersToManageSession": "メンバーにセッション管理を許可する",
+    "creating": "作成中...",
+    "create": "作成"
+  }
+}
