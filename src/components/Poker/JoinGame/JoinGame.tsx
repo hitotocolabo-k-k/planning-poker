@@ -56,7 +56,7 @@ export const JoinGame = () => {
   return (
     <div className='w-full'>
       <form onSubmit={handleSubmit} className='w-full flex justify-center'>
-        <div className='w-full max-w-lg  border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-6'>
+        <div className='w-full max-w-xl  border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-6'>
           <h2 className='text-2xl font-bold mb-4 text-center'>Join a Session</h2>
           <div className='flex flex-col gap-4'>
             <div>

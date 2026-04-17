@@ -81,7 +81,7 @@ export const CreateGame = () => {
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex justify-center'>
-      <div className='w-full max-w-lg border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-6 mt-6'>
+      <div className='w-full max-w-xl border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-6 mt-6'>
         <h2 className='text-2xl font-semibold mb-4 text-center'>
           {t('CreateGame.newSessionHeader')}
         </h2>

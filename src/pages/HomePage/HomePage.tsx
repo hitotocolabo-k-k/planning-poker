@@ -78,7 +78,7 @@ const HeroSection = () => {
         <p className='text-base text-center mb-4'>{t('HomePage.heroSection.description')}</p>
       </Column>
       <Column className='flex flex-col items-center'>
-        <div className='w-full max-w-md'>{isJoin ? <JoinGame /> : <CreateGame />}</div>
+        <div className='w-full max-w-xl'>{isJoin ? <JoinGame /> : <CreateGame />}</div>
       </Column>
     </Section>
   );

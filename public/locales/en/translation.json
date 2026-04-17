@@ -12,7 +12,148 @@
     "heroSection": {
       "title": "Free Planning Poker App",
       "description": "Free / Open source Planning Poker Web App to estimate user stories for your Agile/Scrum teams. Create a session and invite your team members to estimate user stories efficiently."
+    },
+    "recentSessions": "Here are your recent Planning/Refinement sessions. Click on a session name to join it again.",
+    "uiDesignTitle": "Intuitive UI Design",
+    "uiDesignDesc": "Beautiful design for voting the story points, showing team members voting status with emojis(👍 - Voting Done, 🤔 - Yet to Vote). Once the card values are revealed, the card color helps to understand if the team's voting is sync or not. Session Moderator has full control on revealing story points and restarting the session.",
+    "about": {
+      "whatIs": {
+        "title": "What is Agile Planning Poker?",
+        "paragraphs": [
+          "In Agile software development, accurate estimation of tasks is crucial for effective planning and project success. Agile Planning Poker is a collaborative technique that leverages the wisdom of the team to estimate effort, complexity, or relative size of user stories or tasks. In this article, we will delve into the details of Agile Planning Poker, its benefits, and how it can revolutionize the estimation process for Agile teams.",
+          "Agile Planning Poker, also known as Scrum Poker, is a consensus-based estimation technique used in Agile projects. It involves a team of individuals with diverse expertise collectively assigning effort points or story points to user stories, features, or tasks. This technique facilitates discussion, knowledge sharing, and alignment among team members, ensuring a more accurate estimation process."
+        ]
+      },
+      "howItWorks": {
+        "title": "How Agile Planning Poker Works",
+        "items": [
+          { "title": "Team Collaboration", "description": "Agile Planning Poker brings together the entire Agile team, including developers, testers, product owners, and scrum masters. Each team member receives a deck of cards with values representing the effort or complexity of the work to be estimated." },
+          { "title": "User Story Presentation", "description": "The product owner presents a user story or task to the team, explaining its purpose, requirements, and expected outcomes. This ensures a common understanding of the work to be estimated." },
+          { "title": "Individual Estimation", "description": "Each team member privately selects a card representing their estimate of effort or complexity. The cards are kept face down until everyone has made their estimation." },
+          { "title": "Revealing Estimations", "description": "On a predetermined signal, all team members simultaneously reveal their selected cards. This reveals a range of estimates and encourages discussion and justification for the differing estimations." },
+          { "title": "Consensus Building", "description": "Team members discuss their reasoning, clarifying any uncertainties and sharing their perspectives. Through open dialogue, consensus is reached, and the team converges on a shared estimation." },
+          { "title": "Repeating the Process", "description": "The Agile Planning Poker process is repeated for each user story or task, allowing the team to estimate the entire backlog or sprint plan collaboratively." }
+        ]
+      },
+      "benefits": {
+        "title": "Benefits of Agile Planning Poker",
+        "items": [
+          { "title": "Improved Accuracy", "description": "Agile Planning Poker leverages the collective knowledge and expertise of the team, resulting in more accurate and reliable estimations. It considers different perspectives, experiences, and skill sets, leading to a well-rounded estimation process." },
+          { "title": "Enhanced Collaboration", "description": "The technique encourages open communication, discussion, and knowledge sharing among team members. It facilitates a shared understanding of the work, promotes a sense of ownership, and fosters a collaborative team culture." },
+          { "title": "Increased Transparency", "description": "Agile Planning Poker makes the estimation process transparent and visible to the entire team. This visibility helps identify discrepancies, resolve conflicts, and align expectations, ensuring better planning and decision-making." },
+          { "title": "Time Efficiency", "description": "The structured nature of Agile Planning Poker streamlines the estimation process. It prevents lengthy debates and reduces biases by anchoring individual estimations to a shared understanding, leading to quicker consensus building." }
+        ]
+      },
+      "bestPractices": {
+        "title": "Best Practices for Agile Planning Poker",
+        "items": [
+          { "title": "Establish Consistent Estimation Units", "description": "Ensure the team has a clear understanding and consistency in the units used for estimation, such as story points, ideal days, or t-shirt sizes." },
+          { "title": "Include the Whole Team", "description": "Involve all team members in Agile Planning Poker, as diverse perspectives lead to better estimations and improved buy-in." },
+          { "title": "Use Fibonacci Sequence", "description": "Consider utilizing the Fibonacci sequence (1, 2, 3, 5, 8, 13, 21, etc.) for assigning values to estimation cards. This helps account for the inherent uncertainty and diminishing accuracy of estimating larger tasks." },
+          { "title": "Document and Track Estimations", "description": "Maintain a record of estimated values to track progress, monitor trends and identify areas where adjustments may be necessary. This documentation provides valuable insights for future planning and retrospective analysis." },
+          { "title": "Embrace Consensus", "description": "Agile Planning Poker aims to achieve consensus within the team. Encourage open discussions, actively listen to different viewpoints, and work towards finding common ground to reach agreement on the estimation." },
+          { "title": "Iterate and Refine", "description": "Agile Planning Poker is not a one-time activity. Continuously refine and improve the estimation process based on feedback and lessons learned from previous sprints. Adapt the technique to suit the team's needs and evolving project requirements." }
+        ],
+        "conclusion": "Agile Planning Poker is a powerful technique that enhances collaboration, transparency, and accuracy in the estimation process for Agile teams. By harnessing the collective knowledge and expertise of team members, it leads to more reliable estimations and better planning outcomes. Embracing Agile Planning Poker enables teams to effectively manage project scope, prioritize work, and deliver value to stakeholders with increased confidence. Incorporate this collaborative estimation technique into your Agile practices and experience the benefits of empowered teamwork and improved project success."
+      }
     }
+  },
+  "GuidePage": {
+    "title": "Guidelines on estimating user stories in Agile",
+    "items": [
+      {
+        "title": "Understand the User Story",
+        "description": "Before estimating, ensure that the team has a clear understanding of the user story. The product owner or the person responsible for defining the user story should provide sufficient context and answer any questions from the team. The team should have a shared understanding of the user story's purpose, functionality, and expected outcomes."
+      },
+      {
+        "title": "Determine Estimation Scale",
+        "description": "Choose an estimation scale that suits your team's needs. The most common scales used in Agile are Fibonacci sequence (1, 2, 3, 5, 8, 13, 21, etc.), T-shirt sizes (XS, S, M, L, XL), or linear scale (1-10). Select a scale that allows for enough differentiation between estimations and avoids spending excessive time on fine-grained estimates."
+      },
+      {
+        "title": "Relative Sizing",
+        "description": "Agile estimation focuses on relative sizing, where the team compares the effort or complexity of one user story with another. This approach helps avoid the pitfalls of trying to estimate absolute time. Relative sizing allows for a more straightforward and faster estimation process."
+      },
+      {
+        "title": "Use Reference User Stories",
+        "description": "Create a set of reference user stories that the team collectively agrees on. These reference stories serve as benchmarks against which other user stories can be compared. The team can assign a standard estimation value to each reference story based on its complexity, effort, or size."
+      },
+      {
+        "title": "Conduct Estimation Sessions",
+        "description": "Organize estimation sessions with the entire team present. The team members responsible for implementing the user stories should be actively involved in the estimation process. Use techniques such as Planning Poker, where team members privately select estimation values, and then reveal them simultaneously, allowing for discussion and convergence."
+      },
+      {
+        "title": "Discuss and Resolve Differences",
+        "description": "Encourage open discussion during estimation sessions. If team members provide different estimations, have them share their reasoning and insights. This discussion helps to uncover assumptions, identify risks or dependencies, and clarify any misunderstandings. The goal is to reach a consensus estimation."
+      },
+      {
+        "title": "Update and Refine Estimations",
+        "description": "After the estimation session, update the user story estimates in the product backlog or Agile management tool. As the project progresses, continue to refine the estimates based on actual effort or complexity experienced during implementation. This continuous refinement improves the accuracy of future estimations."
+      }
+    ]
+  },
+  "ExamplesPage": {
+    "title": "Examples of User Story Estimation",
+    "labels": {
+      "userStory": "User Story:",
+      "estimation": "Estimation:",
+      "rationale": "Rationale:",
+      "note": "Note:"
+    },
+    "items": [
+      {
+        "userStory": "As a user, I want to be able to log in to the application using my email and password.",
+        "estimation": "3 story points (Fibonacci sequence)",
+        "rationale": "The team considers this user story to have medium complexity compared to other user stories. It involves implementing authentication logic, verifying credentials, and providing appropriate error handling. The team's collective experience and judgment led to the consensus estimation of 3 story points."
+      },
+      {
+        "userStory": "As a user, I want to search for products based on various filters (e.g., price, category, brand).",
+        "estimation": "5 story points (Fibonacci sequence)",
+        "rationale": "The team considers this user story to be more complex compared to simpler user stories. Implementing the search functionality involves handling multiple filter options, integrating with the database, and ensuring efficient search performance. The team estimates it to be a moderate-sized task."
+      },
+      {
+        "userStory": "As an administrator, I want to be able to generate monthly reports on user activity and sales performance.",
+        "estimation": "8 story points (Fibonacci sequence)",
+        "rationale": "The team identifies this user story as a larger and more involved task. It requires designing and implementing reporting functionalities, gathering and aggregating data from multiple sources, and generating meaningful insights. The complexity and effort involved lead to a higher estimation."
+      },
+      {
+        "userStory": "As a user, I want to be able to reset my password if I forget it.",
+        "estimation": "2 story points (Fibonacci sequence)",
+        "rationale": "The team considers this user story relatively simple and straightforward. Implementing a password reset functionality typically involves providing an email verification mechanism and updating the user's password in the database. The team estimates it to be a smaller task compared to others."
+      },
+      {
+        "userStory": "As a user, I want to be able to add products to my shopping cart and proceed to checkout.",
+        "estimation": "Medium (T-shirt size)",
+        "rationale": "The team uses T-shirt sizes for estimation. Adding products to a shopping cart and enabling the checkout process involves handling user interactions, managing cart state, updating inventory, and integrating with payment gateways. The team estimates it to be of medium size in terms of effort and complexity."
+      },
+      {
+        "userStory": "As a user, I want to be able to upload and attach files to my project tasks.",
+        "estimation": "3 story points (Fibonacci sequence)",
+        "rationale": "The team considers this user story to be of moderate complexity. Implementing file upload functionality involves handling file storage, validation, and linking files to specific tasks or projects. The team estimates it to be a medium-sized task."
+      },
+      {
+        "userStory": "As an administrator, I want to be able to create and manage user roles and permissions.",
+        "estimation": "5 story points (Fibonacci sequence)",
+        "rationale": "The team identifies this user story as a larger and more complex task. Implementing role-based access control requires designing a flexible permission system, defining roles, managing user permissions, and ensuring proper security measures. The effort and complexity involved lead to a higher estimation."
+      },
+      {
+        "userStory": "As a user, I want to receive email notifications for important updates and events.",
+        "estimation": "2 story points (Fibonacci sequence)",
+        "rationale": "The team considers this user story relatively straightforward. Implementing email notifications involves integrating with an email service provider, setting up templates, and triggering emails based on specific events or triggers. The team estimates it to be a smaller task compared to others."
+      },
+      {
+        "userStory": "As a user, I want to be able to filter and sort search results based on different criteria.",
+        "estimation": "3 story points (Fibonacci sequence)",
+        "rationale": "The team identifies this user story as a moderate-sized task. Implementing filtering and sorting functionality requires handling user preferences, building flexible search queries, and presenting sorted and filtered results. The team estimates it to be of medium complexity and effort."
+      }
+    ],
+    "note": "These estimations are based on hypothetical scenarios, and actual estimations may vary based on project-specific factors, team dynamics, and technology considerations. The primary aim is to establish a relative understanding of effort or complexity to aid in prioritization and planning."
+  },
+  "RecentGames": {
+    "title": "Recent Session",
+    "empty": "No recent sessions found",
+    "tableName": "Name",
+    "tableCreatedBy": "Created By",
+    "deleteConfirm": "Are you sure? That will delete the session: {{name}} and remove all players from the session."
   },
   "GameController": {
     "autoReveal": "Auto Reveal",

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { AlertDialog } from '../../../components/AlertDialog/AlertDialog';
 import { removeGame } from '../../../service/games';
@@ -9,6 +10,7 @@ import { DeleteSVG } from '../../SVGs/DeleteSVG';
 
 export const RecentGames = () => {
   const history = useHistory();
+  const { t } = useTranslation();
   const [recentGames, setRecentGames] = useState<PlayerGame[] | undefined>(undefined);
   const [reloadRecent, setReloadRecent] = useState<Boolean>(false);
 
@@ -47,20 +49,20 @@ export const RecentGames = () => {
   return (
     <div className='border border-gray-400 rounded-md shadow-sm'>
       <div className='text-center -mt-5 mx-auto w-[95%] border-2 bg-white dark:bg-gray-800 border-gray-400 rounded-2xl flex items-center justify-center px-3 py-1'>
-        <h6 className='text-lg font-medium  truncate'>Recent Session</h6>
+        <h6 className='text-lg font-medium  truncate'>{t('RecentGames.title')}</h6>
       </div>
       <div className='p-4'>
-        {isEmptyRecentGames() && <p className='text-sm'>No recent sessions found</p>}
+        {isEmptyRecentGames() && <p className='text-sm'>{t('RecentGames.empty')}</p>}
         {recentGames && recentGames.length > 0 && (
           <div className='overflow-x-auto' style={{ maxHeight: 250 }}>
             <table className='min-w-full divide-y divide-gray-200'>
               <thead className='bg-gray-50'>
                 <tr>
                   <th className='sticky top-0 z-10 bg-gray-50 dark:bg-gray-800 px-6 py-3 text-left text-xs font-bold tracking-wider'>
-                    Name
+                    {t('RecentGames.tableName')}
                   </th>
                   <th className='sticky top-0 z-10 bg-gray-50 dark:bg-gray-800 px-6 py-3 text-left text-xs font-bold  tracking-wider'>
-                    Created By
+                    {t('RecentGames.tableCreatedBy')}
                   </th>
                   <th className='sticky top-0 z-10 bg-gray-50 dark:bg-gray-800 px-6 py-3 text-left text-xs font-medium  tracking-wider'></th>
                 </tr>
@@ -87,7 +89,7 @@ export const RecentGames = () => {
                           >
                             <AlertDialog
                               id={recentGame.id}
-                              message={`Are you sure? That will delete the session: ${recentGame.name} and remove all players from the session.`}
+                              message={t('RecentGames.deleteConfirm', { name: recentGame.name })}
                               onConfirm={(id: string) => handleRemoveGame(id)}
                             >
                               <DeleteSVG className='h-5 w-5 text-red-400' />

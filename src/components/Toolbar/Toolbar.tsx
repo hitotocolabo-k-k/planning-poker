@@ -75,11 +75,12 @@ export const Toolbar = () => {
       onClick: () => handleNavigation('/join'),
       testId: 'toolbar.menu.joinSession',
     },
-    {
-      icon: <GithubSVG />,
-      label: 'GitHub',
-      onClick: () => (window.location.href = 'https://github.com/hellomuthu23/planning-poker'),
-    },
+    // 社内利用版では GitHub リンクを非表示（必要になったらこのコメントを解除）
+    // {
+    //   icon: <GithubSVG />,
+    //   label: 'GitHub',
+    //   onClick: () => (window.location.href = 'https://github.com/hellomuthu23/planning-poker'),
+    // },
   ];
   return (
     <div className='flex w-full items-center shadow-sm dark:shadow-gray-800'>

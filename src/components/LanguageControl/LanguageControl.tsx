@@ -5,16 +5,17 @@ import { Loading } from '../Loading/Loading';
 
 const LANGUAGES = [
   { value: 'en-US', label: 'English', flag: 'US' },
-  { value: 'fr-FR', label: 'Français', flag: 'FR' },
-  { value: 'de-DE', label: 'Deutsch', flag: 'DE' },
-  { value: 'nl-NL', label: 'Dutch', flag: 'NL' },
-  { value: 'pt-BR', label: 'Português', flag: 'BR' },
-  { value: 'zh-Hant', label: '繁體中文', flag: 'HK' },
-  { value: 'ru-RU', label: 'Русский', flag: 'RU' },
-  { value: 'hi-IN', label: 'हिंदी', flag: 'IN' },
-  { value: 'ta-IN', label: 'தமிழ்', flag: 'IN' },
-  { value: 'es-ES', label: 'Español', flag: 'ES' },
   { value: 'ja-JP', label: '日本語', flag: 'JP' },
+  // 以下は社内利用版では一旦無効化（必要になったらこのコメントを解除）
+  // { value: 'fr-FR', label: 'Français', flag: 'FR' },
+  // { value: 'de-DE', label: 'Deutsch', flag: 'DE' },
+  // { value: 'nl-NL', label: 'Dutch', flag: 'NL' },
+  // { value: 'pt-BR', label: 'Português', flag: 'BR' },
+  // { value: 'zh-Hant', label: '繁體中文', flag: 'HK' },
+  // { value: 'ru-RU', label: 'Русский', flag: 'RU' },
+  // { value: 'hi-IN', label: 'हिंदी', flag: 'IN' },
+  // { value: 'ta-IN', label: 'தமிழ்', flag: 'IN' },
+  // { value: 'es-ES', label: 'Español', flag: 'ES' },
 ];
 
 export const LanguageControl: React.FC = () => {
