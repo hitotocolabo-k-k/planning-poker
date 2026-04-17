@@ -187,7 +187,9 @@
   "CreateGame": {
     "newSessionHeader": "Create new session",
     "sessionNameLabel": "Session name",
+    "sessionNamePlaceholder": "Enter a session name",
     "yourNameLabel": "Your name",
+    "yourNamePlaceholder": "Enter your name",
     "sessionSizingType": "Session Sizing Type",
     "fibonacci": "Fibonacci (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)",
     "shortFibonacci": "Short Fibonacci (0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100)",
@@ -198,5 +200,16 @@
     "allowMembersToManageSession": "Allow members to manage session",
     "creating": "Creating...",
     "create": "Create"
+  },
+  "JoinGame": {
+    "header": "Join a Session",
+    "sessionIdLabel": "Session ID",
+    "sessionIdPlaceholder": "xyz...",
+    "yourNameLabel": "Your Name",
+    "yourNamePlaceholder": "Enter your name",
+    "sessionNotFound": "Session not found, check the ID",
+    "sessionDeleted": "Session was deleted and doesn't exist anymore!",
+    "joining": "Joining...",
+    "join": "Join"
   }
 }

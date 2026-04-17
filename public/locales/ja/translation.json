@@ -187,7 +187,9 @@
   "CreateGame": {
     "newSessionHeader": "新しいセッションを作成",
     "sessionNameLabel": "セッション名",
+    "sessionNamePlaceholder": "セッション名を入力",
     "yourNameLabel": "お名前",
+    "yourNamePlaceholder": "お名前を入力",
     "sessionSizingType": "見積もり方式",
     "fibonacci": "フィボナッチ (0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89)",
     "shortFibonacci": "ショートフィボナッチ (0, ½, 1, 2, 3, 5, 8, 13, 20, 40, 100)",
@@ -198,5 +200,16 @@
     "allowMembersToManageSession": "メンバーにセッション管理を許可する",
     "creating": "作成中...",
     "create": "作成"
+  },
+  "JoinGame": {
+    "header": "セッションに参加",
+    "sessionIdLabel": "セッションID",
+    "sessionIdPlaceholder": "xyz...",
+    "yourNameLabel": "お名前",
+    "yourNamePlaceholder": "お名前を入力",
+    "sessionNotFound": "セッションが見つかりません。IDをご確認ください",
+    "sessionDeleted": "セッションは削除され、存在しません。",
+    "joining": "参加中...",
+    "join": "参加"
   }
 }

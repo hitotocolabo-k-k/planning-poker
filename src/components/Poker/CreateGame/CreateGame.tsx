@@ -94,7 +94,7 @@ export const CreateGame = () => {
               required
               type='text'
               className='w-full border border-gray-400 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400'
-              placeholder='Enter a session name'
+              placeholder={t('CreateGame.sessionNamePlaceholder')}
               value={gameName || ''}
               onClick={emptyGameName}
               onChange={(event) => setGameName(event.target.value)}
@@ -108,7 +108,7 @@ export const CreateGame = () => {
               required
               type='text'
               className='w-full border border-gray-400 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400'
-              placeholder='Enter your name'
+              placeholder={t('CreateGame.yourNamePlaceholder')}
               value={createdBy || ''}
               onClick={emptyCreatorName}
               onChange={(event) => setCreatedBy(event.target.value)}

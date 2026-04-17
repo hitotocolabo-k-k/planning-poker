@@ -1,10 +1,12 @@
 import { FormEvent, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
 import { getGame } from '../../../service/games';
 import { addPlayerToGame, isCurrentPlayerInGame } from '../../../service/players';
 
 export const JoinGame = () => {
   const history = useHistory();
+  const { t } = useTranslation();
   let { id } = useParams<{ id: string }>();
 
   const [joinGameId, setJoinGameId] = useState(id);
@@ -57,10 +59,12 @@ export const JoinGame = () => {
     <div className='w-full'>
       <form onSubmit={handleSubmit} className='w-full flex justify-center'>
         <div className='w-full max-w-xl  border border-gray-200 dark:border-gray-800 rounded-xl shadow-lg p-6'>
-          <h2 className='text-2xl font-bold mb-4 text-center'>Join a Session</h2>
+          <h2 className='text-2xl font-bold mb-4 text-center'>{t('JoinGame.header')}</h2>
           <div className='flex flex-col gap-4'>
             <div>
-              <label className='block text-sm font-medium mb-1'>Session ID</label>
+              <label className='block text-sm font-medium mb-1'>
+                {t('JoinGame.sessionIdLabel')}
+              </label>
               <input
                 id='joinGameId'
                 required
@@ -68,22 +72,24 @@ export const JoinGame = () => {
                 className={`w-full border border-gray-400 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400 ${
                   !gameFound ? 'border-red-500' : ''
                 }`}
-                placeholder='xyz...'
+                placeholder={t('JoinGame.sessionIdPlaceholder')}
                 value={joinGameId || ''}
                 onChange={(e) => setJoinGameId(e.target.value)}
               />
               {!gameFound && (
-                <p className='text-red-600 text-xs mt-1'>Session not found, check the ID</p>
+                <p className='text-red-600 text-xs mt-1'>{t('JoinGame.sessionNotFound')}</p>
               )}
             </div>
             <div>
-              <label className='block text-sm font-medium mb-1'>Your Name</label>
+              <label className='block text-sm font-medium mb-1'>
+                {t('JoinGame.yourNameLabel')}
+              </label>
               <input
                 required
                 id='playerName'
                 type='text'
                 className='w-full border border-gray-400 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400'
-                placeholder='Enter your name'
+                placeholder={t('JoinGame.yourNamePlaceholder')}
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)}
               />
@@ -97,7 +103,7 @@ export const JoinGame = () => {
               }`}
               disabled={loading}
             >
-              {loading ? 'Joining...' : 'Join'}
+              {loading ? t('JoinGame.joining') : t('JoinGame.join')}
             </button>
           </div>
         </div>
@@ -108,7 +114,7 @@ export const JoinGame = () => {
             className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow'
             role='alert'
           >
-            <span className='block font-bold'>Session was deleted and doesn't exist anymore!</span>
+            <span className='block font-bold'>{t('JoinGame.sessionDeleted')}</span>
           </div>
         </div>
       )}
