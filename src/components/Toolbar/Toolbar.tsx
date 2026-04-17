@@ -15,6 +15,9 @@ import { PlusSVG } from '../SVGs/Plus';
 import { ThemeControl } from '../ThemeControl/ThemeControl';
 import { MenuItem } from './MenuItem';
 export const title = 'Planning Poker';
+// バージョン情報: ビルド時に GitHub Actions 経由で git tag が注入される
+// ローカル開発時は 'dev' にフォールバック
+const appVersion = (import.meta.env.VITE_APP_VERSION as string | undefined) ?? 'dev';
 
 export const Toolbar = () => {
   const history = useHistory();
@@ -90,6 +93,10 @@ export const Toolbar = () => {
             <GamesSVG />
           </div>
           <p className='md:text-2xl text-sm font-normal'>{title}</p>
+          {/* バージョン表示: ロゴの右側に小さく薄く */}
+          <span className='ml-2 text-xs text-gray-400 dark:text-gray-500 font-mono self-end pb-1'>
+            {appVersion}
+          </span>
         </button>
       </div>
 
