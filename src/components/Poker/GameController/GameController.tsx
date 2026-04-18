@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { AlertDialog } from '../../../components/AlertDialog/AlertDialog';
@@ -36,6 +36,22 @@ export const GameController: React.FC<GameControllerProps> = ({
   const { t } = useTranslation();
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
 
+  // ストーリー名入力用のローカル state
+  // Firestore の onSnapshot による再レンダリングで IME 合成が壊れるのを防ぐため、
+  // 入力要素のソースオブトゥルースとしてローカル state を使う
+  const [storyNameInput, setStoryNameInput] = useState(game.storyName || '');
+
+  // IME 合成中フラグ(再レンダリング不要のため useRef)
+  const isComposingRef = useRef(false);
+
+  // リモート(Firestore)からの変更をローカル state に反映する
+  // ただし IME 合成中は同期をスキップする(合成状態が壊れるため)
+  useEffect(() => {
+    if (!isComposingRef.current) {
+      setStoryNameInput(game.storyName || '');
+    }
+  }, [game.storyName]);
+
   useEffect(() => {
     if (
       game.autoReveal &&
@@ -62,6 +78,30 @@ export const GameController: React.FC<GameControllerProps> = ({
     },
     [game.id],
   );
+
+  // ストーリー名の onChange ハンドラ
+  // IME 合成中は Firestore への書き込みを保留する
+  // (書き込むとスナップショット echo で再レンダリングされ、合成が壊れるため)
+  const handleStoryNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setStoryNameInput(value);
+    if (!isComposingRef.current) {
+      updateStoryName(game.id, value);
+    }
+  };
+
+  // IME 合成開始
+  const handleStoryNameCompositionStart = () => {
+    isComposingRef.current = true;
+  };
+
+  // IME 合成確定時に最終値を Firestore に反映する
+  const handleStoryNameCompositionEnd = (e: React.CompositionEvent<HTMLInputElement>) => {
+    isComposingRef.current = false;
+    const value = (e.target as HTMLInputElement).value;
+    setStoryNameInput(value);
+    updateStoryName(game.id, value);
+  };
 
   const copyInviteLink = () => {
     navigator.clipboard.writeText(`${window.location.origin}/join/${game.id}`);
@@ -180,8 +220,10 @@ export const GameController: React.FC<GameControllerProps> = ({
               className='w-full italic p-2 mt-2 border bg-white dark:bg-gray-900 border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400'
               type='text'
               data-testid='story-name-input'
-              value={game.storyName || ''}
-              onChange={(e) => updateStoryName(game.id, e.target.value || '')}
+              value={storyNameInput}
+              onChange={handleStoryNameChange}
+              onCompositionStart={handleStoryNameCompositionStart}
+              onCompositionEnd={handleStoryNameCompositionEnd}
             />
           </div>
         </div>
